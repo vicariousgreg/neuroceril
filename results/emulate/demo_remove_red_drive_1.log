@@ -1,0 +1,675 @@
+test:  imitate
+args: 
+           t : imitate
+     kb_name : kb_il_streamlined
+   demo_name : demo_remove_red_drive_1
+     verbose : True
+       debug : False
+     emulate : True
+   integrity : False
+       check : False
+       ortho : True
+        draw : True
+       decay : 1.0
+      wasted : False
+
+Name  N  W
+------------------------------------------------------------
+       lex       4816  221776800   0.413091
+------------------------------------------------------------
+                  ('op', 'hetero')  0.011070 0
+                 ('mem', 'hetero')  0.358820 0
+                   ('lex', 'auto')  0.043202 0
+
+------------------------------------------------------------
+        op       1234   10071908   0.018760
+------------------------------------------------------------
+                 ('lex', 'hetero')  0.011070 0
+               ('stack', 'hetero')  0.004707 0
+                  ('op', 'hetero')  0.002836 0
+           ('exc_stack', 'hetero')  0.000147 0
+
+------------------------------------------------------------
+       mem      40000 4884800000   9.098649
+------------------------------------------------------------
+                 ('lex', 'hetero')  0.358820 0
+                ('bind', 'hetero')  2.607703 0
+                   ('mem', 'auto')  2.980232 1
+          ('data_stack', 'hetero')  0.019073 0
+                 ('mem', 'hetero')  2.980232 0
+               ('stack', 'hetero')  0.152588 0
+
+------------------------------------------------------------
+     stack       2048   12713984   0.023682
+------------------------------------------------------------
+           ('exc_stack', 'hetero')  0.000244 0
+                 ('stack', 'auto')  0.007812 0
+                  ('stack', 'bwd')  0.007812 0
+                  ('stack', 'fwd')  0.007812 0
+
+------------------------------------------------------------
+ exc_stack         64       8192   0.000015
+------------------------------------------------------------
+              ('exc_stack', 'bwd')  0.000008 0
+              ('exc_stack', 'fwd')  0.000008 0
+
+------------------------------------------------------------
+        gh        240   19524960   0.036368
+------------------------------------------------------------
+                  ('gh', 'hetero')  0.000107 0
+                 ('lex', 'hetero')  0.002153 0
+                ('bind', 'hetero')  0.015646 0
+                  ('op', 'hetero')  0.000552 0
+           ('exc_stack', 'hetero')  0.000029 0
+                 ('mem', 'hetero')  0.017881 0
+
+------------------------------------------------------------
+   mem_ctx      40000 1792640000   3.339052   lam = 0.250000
+------------------------------------------------------------
+                 ('lex', 'hetero')  0.358820 0
+                 ('mem', 'hetero')  2.980232 1
+
+------------------------------------------------------------
+      bind      35000 3921680000   7.304698
+------------------------------------------------------------
+                ('bind', 'hetero')  2.281740 0
+               ('stack', 'hetero')  0.133514 0
+                  ('bind', 'auto')  2.281740 1
+                 ('mem', 'hetero')  2.607703 1
+
+------------------------------------------------------------
+data_stack        256     147456   0.000275
+------------------------------------------------------------
+             ('data_stack', 'bwd')  0.000122 0
+             ('data_stack', 'fwd')  0.000122 0
+           ('exc_stack', 'hetero')  0.000031 0
+
+------------------------------------------------------------
+  bind_ctx      35000  168560000   0.313967   lam = 0.125000
+------------------------------------------------------------
+                 ('lex', 'hetero')  0.313967 0
+
+------------------------------------------------------------
+ stack_ctx       2048    9863168   0.018372   lam = 0.250000
+------------------------------------------------------------
+                 ('lex', 'hetero')  0.018372 0
+
+Total:      160706 11041786468
+Device allocation:
+0:      5216786468     10433572936 (9.7170 GB)
+1:      5825000000     11650000000 (10.8499 GB)
+
+Flashing gates...
+Flashing mappings...
+      bind       bind     hetero            1
+ stack_ctx        lex     hetero            11
+ exc_stack  exc_stack        fwd            32
+ exc_stack  exc_stack        bwd            32
+       lex        lex       auto            45
+        gh         gh     hetero            96
+       mem        lex     hetero            125
+  bind_ctx        lex     hetero            125
+   mem_ctx        lex     hetero            125
+     stack      stack        fwd            128
+     stack      stack        bwd            128
+     stack      stack       auto            128
+data_stack data_stack        fwd            128
+data_stack data_stack        bwd            128
+        op        lex     hetero            146
+       lex         op     hetero            300
+        op         op     hetero            615
+        gh         op     hetero            617
+   mem_ctx        mem     hetero            925
+       mem        mem       auto            925
+       lex        mem     hetero            925
+       mem        mem     hetero    mem_ctx 1601
+
+... flashed in 1.009048s
+
+Running network...
+In:  (
+In:  new
+In:  Environment
+In:  '
+In:  NIL
+In:  '
+In:  (
+In:  (
+In:  left_gripper
+In:  gripping
+In:  none
+In:  )
+In:  (
+In:  right_gripper
+In:  gripping
+In:  none
+In:  )
+In:  (
+In:  dock-case
+In:  identity
+In:  DockCase
+In:  )
+In:  (
+In:  dock-body
+In:  identity
+In:  DockDrawer
+In:  )
+In:  (
+In:  c4
+In:  identity
+In:  Cartridge
+In:  )
+In:  (
+In:  dock-body_8_2
+In:  identity
+In:  DockSwitch
+In:  )
+In:  (
+In:  discard-bin
+In:  identity
+In:  Block
+In:  )
+In:  )
+In:  )
+In:  (
+In:  (
+In:  move_arm_and_grasp
+In:  right_gripper
+In:  dock-body
+In:  )
+In:  (
+In:  right_gripper
+In:  gripping
+In:  dock-body
+In:  )
+In:  )
+Out:  (63566, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0) 3.7037433039804455
+Out:  (69011, '=====-PROCESS_ACTION-=====', 0.0) 4.019545082992408
+Out:  (69174, 'move_arm_and_grasp', 0.0) 4.028971438994631
+In:  (
+In:  (
+In:  move_grasped_object
+In:  right_gripper
+In:  dock-case
+In:  true
+In:  )
+In:  )
+Out:  (112478, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0) 6.526611009991029
+Out:  (117923, '=====-PROCESS_ACTION-=====', 0.0) 6.841989457985619
+Out:  (118086, 'move_grasped_object', 0.0) 6.851373043988133
+In:  (
+In:  (
+In:  release
+In:  right_gripper
+In:  )
+In:  (
+In:  right_gripper
+In:  gripping
+In:  none
+In:  )
+In:  )
+Out:  (164594, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0) 9.532890431990381
+Out:  (170039, '=====-PROCESS_ACTION-=====', 0.0) 9.846627174003515
+Out:  (170202, 'release', 0.0) 9.855880574003095
+Out:  (184363, '=====-PROCESS_ACTION-=====', 0.0) 10.70770986500429
+Out:  (184526, 'open_dock_drawer', 0.0) 10.717139896005392
+In:  (
+In:  (
+In:  press_dock_toggle
+In:  right_gripper
+In:  dock-body_8_2
+In:  2.0
+In:  )
+In:  )
+Out:  (188013, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0) 10.919622383982642
+Out:  (193458, '=====-PROCESS_ACTION-=====', 0.0) 11.234691008983646
+Out:  (193621, 'press_dock_toggle', 0.0) 11.243956346996129
+In:  (
+In:  (
+In:  move_arm_and_grasp
+In:  right_gripper
+In:  c4
+In:  )
+In:  (
+In:  right_gripper
+In:  gripping
+In:  c4
+In:  )
+In:  )
+Out:  (203424, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0) 11.807704973005457
+Out:  (208869, '=====-PROCESS_ACTION-=====', 0.0) 12.122223780985223
+Out:  (209032, 'move_arm_and_grasp', 0.0) 12.131539766996866
+In:  (
+In:  (
+In:  move_grasped_object
+In:  right_gripper
+In:  discard-bin
+In:  true
+In:  )
+In:  )
+Out:  (247641, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0) 14.352556249999907
+Out:  (253086, '=====-PROCESS_ACTION-=====', 0.0) 14.66561422398081
+Out:  (253249, 'move_grasped_object', 0.0) 14.674930279987166
+In:  (
+In:  (
+In:  release
+In:  right_gripper
+In:  )
+In:  (
+In:  right_gripper
+In:  gripping
+In:  none
+In:  )
+In:  )
+Out:  (279980, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0) 16.205915225989884
+Out:  (285425, '=====-PROCESS_ACTION-=====', 0.0) 16.518698247993598
+Out:  (285588, 'release', 0.0) 16.52797925498453
+Out:  (300232, '=====-PROCESS_ACTION-=====', 0.0) 17.368030006007757
+Out:  (300395, 'put_down_grasped_object', 0.0) 17.37734702398302
+Out:  (318255, '=====-PROCESS_ACTION-=====', 0.0) 18.40934210800333
+Out:  (318418, 'move_object', 0.0) 18.418678216985427
+Out:  (337098, '=====-PROCESS_ACTION-=====', 0.0) 19.500601301988354
+Out:  (337261, 'discard_object', 0.0) 19.509987238008762
+In:  NIL
+Out:  (340781, '___', 0.0) 19.712166243989486
+Out:  (340942, 'EXPLANATION', 0.0) 19.72141851100605
+Out:  (341103, '___', 0.0) 19.73060370798339
+Out:  (345437, 'open_dock_drawer', 0.0) 19.979890664981212
+Out:  (345543, '(', 0.0) 19.98596370499581
+Out:  (345565, 'dock-body', 0.0) 19.9872466789966
+Out:  (345593, ')', 0.0) 19.98884212100529
+Out:  (345970, '+-->', 0.0) 20.01017845599563
+Out:  (348331, 'move_arm_and_grasp', 0.0) 20.145807769993553
+Out:  (348437, '(', 0.0) 20.151873798982706
+Out:  (348459, 'right_gripper', 0.0) 20.153175179002574
+Out:  (348504, 'dock-body', 0.0) 20.155727714998648
+Out:  (348532, ')', 0.0) 20.157296874007443
+Out:  (349654, 'move_grasped_object', 0.0) 20.221423423005035
+Out:  (349760, '(', 0.0) 20.227836492995266
+Out:  (349782, 'right_gripper', 0.0) 20.229126299993368
+Out:  (349827, 'dock-case', 0.0) 20.231667080981424
+Out:  (349872, 'true', 0.0) 20.234228985005757
+Out:  (349900, ')', 0.0) 20.235790048987838
+Out:  (351022, 'release', 0.0) 20.300348185002804
+Out:  (351128, '(', 0.0) 20.306449147989042
+Out:  (351150, 'right_gripper', 0.0) 20.3077349109808
+Out:  (351178, ')', 0.0) 20.309318655985408
+Out:  (351584, '+--<', 0.0) 20.33239391198731
+Out:  (352537, 'press_dock_toggle', 0.0) 20.387070697994204
+Out:  (352643, '(', 0.0) 20.393182706990046
+Out:  (352665, 'right_gripper', 0.0) 20.39446035999572
+Out:  (352710, 'dock-body_8_2', 0.0) 20.397032704000594
+Out:  (352755, '2.0', 0.0) 20.399609757994767
+Out:  (352783, ')', 0.0) 20.401183809008216
+Out:  (353924, 'discard_object', 0.0) 20.46669987900532
+Out:  (354030, '(', 0.0) 20.47275610899669
+Out:  (354052, 'c4', 0.0) 20.47405997000169
+Out:  (354080, ')', 0.0) 20.475624724000227
+Out:  (354457, '+-->', 0.0) 20.497047797980485
+Out:  (355810, 'move_object', 0.0) 20.57475388000603
+Out:  (355916, '(', 0.0) 20.580851217993768
+Out:  (355938, 'c4', 0.0) 20.58213435599464
+Out:  (355983, 'discard-bin', 0.0) 20.584717383986572
+Out:  (356028, 'true', 0.0) 20.587284512992483
+Out:  (356056, ')', 0.0) 20.588871471001767
+Out:  (356433, '+-->', 0.0) 20.61032231998979
+Out:  (358290, 'move_arm_and_grasp', 0.0) 20.71754886000417
+Out:  (358396, '(', 0.0) 20.7237178790092
+Out:  (358418, 'right_gripper', 0.0) 20.72503602298093
+Out:  (358463, 'c4', 0.0) 20.727604846993927
+Out:  (358491, ')', 0.0) 20.729184086987516
+Out:  (359613, 'put_down_grasped_object', 0.0) 20.7936210949847
+Out:  (359719, '(', 0.0) 20.799753736006096
+Out:  (359741, 'right_gripper', 0.0) 20.80106000698288
+Out:  (359786, 'discard-bin', 0.0) 20.80363057399518
+Out:  (359831, 'true', 0.0) 20.806201220984804
+Out:  (359859, ')', 0.0) 20.80776627798332
+Out:  (360236, '+-->', 0.0) 20.82936581899412
+Out:  (362093, 'move_grasped_object', 0.0) 20.936423251987435
+Out:  (362199, '(', 0.0) 20.942562062991783
+Out:  (362221, 'right_gripper', 0.0) 20.94384163900395
+Out:  (362266, 'discard-bin', 0.0) 20.946408585994504
+Out:  (362311, 'true', 0.0) 20.948977233987534
+Out:  (362339, ')', 0.0) 20.950541814992903
+Out:  (363461, 'release', 0.0) 21.01494630498928
+Out:  (363567, '(', 0.0) 21.02105214999756
+Out:  (363589, 'right_gripper', 0.0) 21.022383548988728
+Out:  (363617, ')', 0.0) 21.023964695981704
+Out:  (364023, '+--<', 0.0) 21.047153610008536
+Out:  (364241, '+--<', 0.0) 21.059594280988676
+Out:  (364459, '+--<', 0.0) 21.07214959600242
+Out:  (364798, 'done', 0.0) 21.09143084700918
+output:
+(63566, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0)
+(69011, '=====-PROCESS_ACTION-=====', 0.0)
+(69174, 'move_arm_and_grasp', 0.0)
+(112478, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0)
+(117923, '=====-PROCESS_ACTION-=====', 0.0)
+(118086, 'move_grasped_object', 0.0)
+(164594, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0)
+(170039, '=====-PROCESS_ACTION-=====', 0.0)
+(170202, 'release', 0.0)
+(184363, '=====-PROCESS_ACTION-=====', 0.0)
+(184526, 'open_dock_drawer', 0.0)
+(188013, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0)
+(193458, '=====-PROCESS_ACTION-=====', 0.0)
+(193621, 'press_dock_toggle', 0.0)
+(203424, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0)
+(208869, '=====-PROCESS_ACTION-=====', 0.0)
+(209032, 'move_arm_and_grasp', 0.0)
+(247641, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0)
+(253086, '=====-PROCESS_ACTION-=====', 0.0)
+(253249, 'move_grasped_object', 0.0)
+(279980, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 0.0)
+(285425, '=====-PROCESS_ACTION-=====', 0.0)
+(285588, 'release', 0.0)
+(300232, '=====-PROCESS_ACTION-=====', 0.0)
+(300395, 'put_down_grasped_object', 0.0)
+(318255, '=====-PROCESS_ACTION-=====', 0.0)
+(318418, 'move_object', 0.0)
+(337098, '=====-PROCESS_ACTION-=====', 0.0)
+(337261, 'discard_object', 0.0)
+(340781, '___', 0.0)
+(340942, 'EXPLANATION', 0.0)
+(341103, '___', 0.0)
+(345437, 'open_dock_drawer', 0.0)
+(345543, '(', 0.0)
+(345565, 'dock-body', 0.0)
+(345593, ')', 0.0)
+(345970, '+-->', 0.0)
+(348331, 'move_arm_and_grasp', 0.0)
+(348437, '(', 0.0)
+(348459, 'right_gripper', 0.0)
+(348504, 'dock-body', 0.0)
+(348532, ')', 0.0)
+(349654, 'move_grasped_object', 0.0)
+(349760, '(', 0.0)
+(349782, 'right_gripper', 0.0)
+(349827, 'dock-case', 0.0)
+(349872, 'true', 0.0)
+(349900, ')', 0.0)
+(351022, 'release', 0.0)
+(351128, '(', 0.0)
+(351150, 'right_gripper', 0.0)
+(351178, ')', 0.0)
+(351584, '+--<', 0.0)
+(352537, 'press_dock_toggle', 0.0)
+(352643, '(', 0.0)
+(352665, 'right_gripper', 0.0)
+(352710, 'dock-body_8_2', 0.0)
+(352755, '2.0', 0.0)
+(352783, ')', 0.0)
+(353924, 'discard_object', 0.0)
+(354030, '(', 0.0)
+(354052, 'c4', 0.0)
+(354080, ')', 0.0)
+(354457, '+-->', 0.0)
+(355810, 'move_object', 0.0)
+(355916, '(', 0.0)
+(355938, 'c4', 0.0)
+(355983, 'discard-bin', 0.0)
+(356028, 'true', 0.0)
+(356056, ')', 0.0)
+(356433, '+-->', 0.0)
+(358290, 'move_arm_and_grasp', 0.0)
+(358396, '(', 0.0)
+(358418, 'right_gripper', 0.0)
+(358463, 'c4', 0.0)
+(358491, ')', 0.0)
+(359613, 'put_down_grasped_object', 0.0)
+(359719, '(', 0.0)
+(359741, 'right_gripper', 0.0)
+(359786, 'discard-bin', 0.0)
+(359831, 'true', 0.0)
+(359859, ')', 0.0)
+(360236, '+-->', 0.0)
+(362093, 'move_grasped_object', 0.0)
+(362199, '(', 0.0)
+(362221, 'right_gripper', 0.0)
+(362266, 'discard-bin', 0.0)
+(362311, 'true', 0.0)
+(362339, ')', 0.0)
+(363461, 'release', 0.0)
+(363567, '(', 0.0)
+(363589, 'right_gripper', 0.0)
+(363617, ')', 0.0)
+(364023, '+--<', 0.0)
+(364241, '+--<', 0.0)
+(364459, '+--<', 0.0)
+(364798, 'done', 0.0)
+
+learned:
+            mem             mem          hetero   |   online:   448 /   448 |  flashed:  1601 /  1601 |  activ_count:  22488
+             gh            bind          hetero   |   online:  1796 /  5054 |  flashed:     0 /     0 |  activ_count:   4981
+            lex             mem          hetero   |   online:   240 /   240 |  flashed:   925 /   925 |  activ_count:  21993
+            mem             mem            auto   |   online:   240 /   240 |  flashed:   925 /   925 |  activ_count:  29993
+        mem_ctx             mem          hetero   |   online:   240 /   240 |  flashed:   925 /   925 |  activ_count:  15519
+            mem            bind          hetero   |   online:   720 /   856 |  flashed:     0 /     0 |  activ_count:   1749
+           bind            bind            auto   |   online:   720 /   856 |  flashed:     0 /     0 |  activ_count:   3408
+             gh              op          hetero   |   online:     0 /     0 |  flashed:   617 /   617 |  activ_count:  99418
+             op              op          hetero   |   online:     0 /     0 |  flashed:   615 /   615 |  activ_count:  80191
+           bind            bind          hetero   |   online:   381 /   394 |  flashed:     1 /     1 |  activ_count:   1646
+            lex              op          hetero   |   online:     0 /     0 |  flashed:   300 /   300 |  activ_count:  33696
+            mem           stack          hetero   |   online:   220 /  7283 |  flashed:     0 /     0 |  activ_count:   8552
+            mem             lex          hetero   |   online:    16 /    16 |  flashed:   125 /   125 |  activ_count:    663
+        mem_ctx             lex          hetero   |   online:    16 /    16 |  flashed:   125 /   125 |  activ_count:   8361
+       bind_ctx             lex          hetero   |   online:    16 /    16 |  flashed:   125 /   125 |  activ_count:   4264
+          stack           stack            auto   |   online:     0 /     0 |  flashed:   128 /   128 |  activ_count:   5756
+          stack           stack             bwd   |   online:     0 /     0 |  flashed:   128 /   128 |  activ_count:   7903
+          stack           stack             fwd   |   online:     0 /     0 |  flashed:   128 /   128 |  activ_count:   8062
+     data_stack      data_stack             bwd   |   online:     0 /     0 |  flashed:   128 /   128 |  activ_count:   2326
+     data_stack      data_stack             fwd   |   online:     0 /     0 |  flashed:   128 /   128 |  activ_count:   2327
+             gh             lex          hetero   |   online:   108 / 13889 |  flashed:     0 /     0 |  activ_count:  13889
+           bind             mem          hetero   |   online:   105 /   127 |  flashed:     0 /     0 |  activ_count:    936
+             op             lex          hetero   |   online:     0 /     0 |  flashed:   101 /   146 |  activ_count:  19226
+             gh              gh          hetero   |   online:     0 /     0 |  flashed:    96 /    96 |  activ_count:  246458
+            lex             lex            auto   |   online:     0 /     0 |  flashed:    45 /    45 |  activ_count:   3854
+           bind           stack          hetero   |   online:    42 /  9781 |  flashed:     0 /     0 |  activ_count:   6722
+             op           stack          hetero   |   online:    42 /  8062 |  flashed:     0 /     0 |  activ_count:   7903
+      exc_stack       exc_stack             bwd   |   online:     0 /     0 |  flashed:    32 /    32 |  activ_count:    112
+      exc_stack       exc_stack             fwd   |   online:     0 /     0 |  flashed:    32 /    32 |  activ_count:    112
+            mem      data_stack          hetero   |   online:    25 /  3151 |  flashed:     0 /     0 |  activ_count:   3535
+      stack_ctx             lex          hetero   |   online:     0 /     0 |  flashed:    11 /    11 |  activ_count:   5756
+             gh             mem          hetero   |   online:    10 /    55 |  flashed:     0 /     0 |  activ_count:     55
+             op       exc_stack          hetero   |   online:     3 /   112 |  flashed:     0 /     0 |  activ_count:     55
+          stack       exc_stack          hetero   |   online:     3 /   112 |  flashed:     0 /     0 |  activ_count:     55
+     data_stack       exc_stack          hetero   |   online:     3 /   112 |  flashed:     0 /     0 |  activ_count:     55
+             gh       exc_stack          hetero   |   online:     1 /     1 |  flashed:     0 /     0 |  activ_count:     54
+
+Final activity states:
+            lex :            progn_end  0.000000
+             op :                 halt  0.000000
+            mem :                 done  0.000000
+          stack :                    0  0.000000
+      exc_stack :                    0  0.000000
+             gh :                 halt  0.000000
+        mem_ctx :              main795  0.000000
+           bind :              def_env  0.000000
+     data_stack :                    0  0.000000
+       bind_ctx :           source_hyp  0.000000
+      stack_ctx :                 inst  0.000000
+
+Gate history:
+          gh       learn   exc_stack      hetero :          1                 0.0000   0.000005623005563393
+    bind_ctx       stash                         :         16                 0.0000   0.000000673437170917
+    bind_ctx       noise                         :         16                 0.0000   0.000001896749381558
+         mem       learn         lex      hetero :         16                 0.0000   0.000003071314495173
+    bind_ctx       learn         lex      hetero :         16                 0.0001   0.000003393495717319
+     mem_ctx       learn         lex      hetero :         16                 0.0001   0.000003410943463678
+  data_stack       stash                         :        112                 0.0001   0.000000754383238797
+       stack       stash                         :        112                 0.0001   0.000001309911437732
+     mem_ctx       stash                         :        240                 0.0002   0.000000771567768728
+  data_stack    activate   exc_stack      hetero :         55                 0.0002   0.000003790238406509
+          op    activate   exc_stack      hetero :         55                 0.0002   0.000003815999000587
+          gh       learn         mem      hetero :         55                 0.0003   0.000004762691043487
+       stack    activate   exc_stack      hetero :         55                 0.0003   0.000005411000033333
+          gh    activate   exc_stack      hetero :         54                 0.0003   0.000005579536836767
+          gh    activate         mem      hetero :         55                 0.0003   0.000005546273578974
+  data_stack       learn   exc_stack      hetero :        112                 0.0004   0.000003136865676164
+          op       learn   exc_stack      hetero :        112                 0.0004   0.000003213981731928
+         lex       stash                         :        339                 0.0004   0.000001256238768059
+   exc_stack    activate   exc_stack         bwd :        112                 0.0004   0.000003905847604204
+   exc_stack    activate   exc_stack         fwd :        112                 0.0005   0.000004296162192726
+       stack       learn   exc_stack      hetero :        112                 0.0005   0.000004500554756045
+        bind       learn         mem      hetero :        127                 0.0006   0.000004375063104731
+         mem       noise                         :        240                 0.0010   0.000003990387267550
+     mem_ctx       noise                         :        240                 0.0010   0.000004032724245917
+         lex       learn         mem      hetero :        240                 0.0010   0.000004268903406531
+     mem_ctx       learn         mem      hetero :        240                 0.0011   0.000004419978965113
+         mem       learn         mem        auto :        240                 0.0011   0.000004694241094209
+        bind       noise                         :        381                 0.0016   0.000004200878436372
+        bind       learn        bind      hetero :        394                 0.0019   0.000004854571144569
+         mem       learn         mem      hetero :        448                 0.0025   0.000005618475175392
+         mem    activate         lex      hetero :        663                 0.0036   0.000005413372823575
+        bind    activate         mem      hetero :        936                 0.0039   0.000004126531220963
+        bind       learn        bind        auto :        856                 0.0040   0.000004619455577536
+         mem       learn        bind      hetero :        856                 0.0052   0.000006041816177628
+        bind    activate        bind      hetero :       1646                 0.0064   0.000003885378676211
+  data_stack    activate  data_stack         bwd :       2326                 0.0090   0.000003883656076703
+  data_stack    activate  data_stack         fwd :       2327                 0.0091   0.000003920231306854
+        bind       stash                         :      11158                 0.0097   0.000000871188932900
+          op       stash                         :       8174                 0.0105   0.000001283226869158
+         mem    activate        bind      hetero :       1749                 0.0114   0.000006519198666469
+         mem       learn  data_stack      hetero :       3151                 0.0141   0.000004481949120960
+         mem       stash                         :      11978                 0.0154   0.000001283465498642
+       stack     context   stack_ctx             :       5756                 0.0162   0.000002809464608494
+    bind_ctx    activate         lex      hetero :       4264                 0.0171   0.000004006754295994
+         mem    activate  data_stack      hetero :       3535                 0.0189   0.000005346670513973
+        bind     context    bind_ctx             :       7672                 0.0214   0.000002787245084221
+          gh       learn        bind      hetero :       5054                 0.0234   0.000004634248306943
+          gh        bias       false             :      18979                 0.0243   0.000001280665786975
+        bind    activate        bind        auto :       3408                 0.0253   0.000007425609228577
+         lex    activate         lex        auto :       3854                 0.0259   0.000006713115835341
+        bind    activate       stack      hetero :       6722                 0.0274   0.000004079675462660
+          gh    activate        bind      hetero :       4981                 0.0287   0.000005769059551879
+   stack_ctx    activate         lex      hetero :       5756                 0.0300   0.000005217325940861
+       stack    converge                         :       5756                 0.0313   0.000005437020826485
+          op       learn       stack      hetero :       8062                 0.0351   0.000004349458187020
+     mem_ctx    activate         lex      hetero :       8361                 0.0354   0.000004230437790904
+         mem       learn       stack      hetero :       7283                 0.0372   0.000005106725657752
+        bind       learn       stack      hetero :       9781                 0.0399   0.000004080623276077
+       stack    activate       stack         bwd :       7903                 0.0431   0.000005457021266298
+          op    activate       stack      hetero :       7903                 0.0431   0.000005457376526000
+       stack    activate       stack         fwd :       8062                 0.0439   0.000005451249679783
+         mem    activate       stack      hetero :       8552                 0.0459   0.000005366365849241
+          gh       learn         lex      hetero :      13889                 0.0591   0.000004257088239436
+          gh    activate         lex      hetero :      13889                 0.0772   0.000005556528959218
+     mem_ctx    activate         mem      hetero :      15519                 0.0830   0.000005350424068312
+          op    activate         lex      hetero :      19226                 0.1010   0.000005255173362870
+         lex    activate         mem      hetero :      21993                 0.1143   0.000005195890024073
+         mem    converge                         :      29993                 0.1477   0.000004924847916507
+         mem    activate         mem      hetero :      22488                 0.1541   0.000006854166761196
+         mem     context     mem_ctx             :      56669                 0.1552   0.000002738244506703
+         lex    activate          op      hetero :      33696                 0.1606   0.000004765936916538
+          op    activate          op      hetero :      80191                 0.3954   0.000004930184563391
+    bind_ctx       cycle                         :     364855                 0.4762   0.000001305286703569
+  data_stack       cycle                         :     364855                 0.4802   0.000001316044218837
+   stack_ctx       cycle                         :     364855                 0.4852   0.000001329956518412
+        bind       cycle                         :     364855                 0.4876   0.000001336401418902
+          gh    activate          op      hetero :      99418                 0.4931   0.000004960264111718
+       stack       cycle                         :     364855                 0.4934   0.000001352291073982
+          gh       cycle                         :     364855                 0.4950   0.000001356626582796
+   exc_stack       cycle                         :     364855                 0.4966   0.000001361002740133
+     mem_ctx       cycle                         :     364855                 0.5083   0.000001393232389784
+          op       cycle                         :     364855                 0.5387   0.000001476468104414
+         mem       cycle                         :     364855                 0.5442   0.000001491518861714
+         lex       cycle                         :     364855                 0.6390   0.000001751276823028
+          gh    activate          gh      hetero :     246458                 0.9531   0.000003867188446319
+          go    activate          gh      hetero :     364856                 1.3048   0.000003576140691407
+          go       cycle                         :     364856                 2.7934   0.000007656088114717
+
+Executed 364855 timesteps in 21.094686s
+
+Ran test 'imitate' in 364855 timesteps
+Output:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ =====-PROCESS_ACTION-===== move_arm_and_grasp ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ =====-PROCESS_ACTION-===== move_grasped_object ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ =====-PROCESS_ACTION-===== release =====-PROCESS_ACTION-===== open_dock_drawer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ =====-PROCESS_ACTION-===== press_dock_toggle ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ =====-PROCESS_ACTION-===== move_arm_and_grasp ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ =====-PROCESS_ACTION-===== move_grasped_object ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ =====-PROCESS_ACTION-===== release =====-PROCESS_ACTION-===== put_down_grasped_object =====-PROCESS_ACTION-===== move_object =====-PROCESS_ACTION-===== discard_object ___ EXPLANATION ___ open_dock_drawer ( dock-body ) +--> move_arm_and_grasp ( right_gripper dock-body ) move_grasped_object ( right_gripper dock-case true ) release ( right_gripper ) +--< press_dock_toggle ( right_gripper dock-body_8_2 2.0 ) discard_object ( c4 ) +--> move_object ( c4 discard-bin true ) +--> move_arm_and_grasp ( right_gripper c4 ) put_down_grasped_object ( right_gripper discard-bin true ) +--> move_grasped_object ( right_gripper discard-bin true ) release ( right_gripper ) +--< +--< +--< done
+_26 ListMap 57 4
+_29 Recipe 32 3
+_31 Recipe 44 3
+_33 Recipe 44 3
+_35 Recipe 47 3
+_37 Recipe 40 3
+_93 Environment 125 10
+_94 Environment 15 4
+_95 Environment 21 4
+_96 Environment 15 4
+_97 Environment 23 4
+_98 Environment 23 4
+_99 Environment 15 4
+_100 Environment 15 4
+_101 Timepoint 70 5
+_102 ListMap 15 1
+_112 Environment 43 4
+_113 Environment 25 4
+_114 Action 68 7
+_115 Timepoint 43 5
+_116 ListMap 23 2
+_118 Hypothesis 34 7
+_119 Environment 28 6
+_120 Hypothesis 27 7
+_122 Hypothesis 38 7
+_123 Environment 28 6
+_124 Hypothesis 48 7
+_126 Hypothesis 17 7
+_127 Environment 22 6
+_133 Action 60 7
+_134 Timepoint 36 5
+_135 ListMap 18 2
+_137 Hypothesis 17 7
+_138 Environment 26 7
+_139 Environment 32 6
+_140 Hypothesis 40 7
+_142 Environment 26 6
+_150 Environment 61 4
+_151 Environment 23 4
+_152 Action 44 7
+_153 Timepoint 45 5
+_154 ListMap 13 1
+_156 Environment 18 4
+_157 Action 39 7
+_168 Action 40 7
+_169 Timepoint 84 5
+_170 ListMap 17 1
+_180 Environment 47 4
+_181 Environment 25 4
+_182 Action 63 7
+_183 Timepoint 57 5
+_184 ListMap 20 2
+_186 Hypothesis 17 7
+_187 Environment 22 6
+_188 Hypothesis 17 7
+_189 Environment 22 6
+_190 Hypothesis 38 7
+_191 Environment 28 6
+_192 Hypothesis 40 7
+_199 Action 45 7
+_200 Timepoint 36 5
+_201 ListMap 18 2
+_203 Hypothesis 38 7
+_204 Environment 32 7
+_205 Hypothesis 40 7
+_214 Environment 26 4
+_215 Environment 17 4
+_216 Action 45 7
+_217 Timepoint 47 5
+_218 ListMap 11 1
+_220 Environment 18 4
+_221 Action 46 7
+_227 Environment 26 6
+_228 Action 46 7
+_234 Hypothesis 30 7
+_235 Environment 28 7
+_236 Action 35 7
+Objects:  77
+  Action: 11
+  Environment: 30
+  Hypothesis: 14
+  ListMap: 9
+  Recipe: 5
+  Timepoint: 8
+Properties:  399
+Non-objects:
+  #CLASS: 6 (Flashed: 0)
+  #FUNCTION: 22 (Flashed: 0)
+  #LIST: 919 (Flashed: 800)
+Symbols:  141
