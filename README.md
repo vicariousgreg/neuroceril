@@ -1,6 +1,9 @@
 # NeuroCERIL
 `neuroceril` includes an implementation of NeuroCERIL, a programmable neural network that implements a causal inference algorithm for imitation learning
 
+Davis, G.P., Katz, G.E., Gentili, R.J. et al. NeuroCERIL: Robotic Imitation Learning via Hierarchical Cause-Effect Reasoning in Programmable Attractor Neural Networks. Int J of Soc Robotics 15, 1277–1295 (2023).
+[publication](https://doi.org/10.1007/s12369-023-00997-z) [preprint](https://arxiv.org/abs/2211.06462)
+
 ## Requirements
 
 
